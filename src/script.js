@@ -6,9 +6,12 @@ const summaryOptionIcons = document.querySelectorAll(".summary-option-icon");
   const response = await fetch("../data.json");
   const data = await response.json();
 
-  summaryBoldNumbers.forEach((item, index) => {
-    item.innerText = data[index].score;
-    summaryOptionTexts[index].innerText = data[index].category;
-    summaryOptionIcons[index].src = data[index].icon;
-  });
+  summaryBoldNumbers.length &&
+    summaryOptionTexts.length &&
+    summaryOptionIcons.length &&
+    summaryBoldNumbers.forEach((item, index) => {
+      item.innerText = data[index].score;
+      summaryOptionTexts[index].innerText = data[index].category;
+      summaryOptionIcons[index].src = data[index].icon;
+    });
 })();
