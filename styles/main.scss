@@ -1,0 +1,254 @@
+
+@use "colors" as *;
+@use "typography" as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  background: $white;
+  font-family: $family;
+  font-size: $font-size;
+  margin: 0;
+  color: $light-white;
+
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 18rem);
+  grid-template-columns: fit-content;
+  box-shadow: 10px 10px 50px $light-lavender;
+  border-radius: 1.5rem;
+}
+
+@media screen and (max-width: 375px) {
+
+  body {
+    justify-content: flex-start;
+  }
+
+  .container {
+    grid-template-columns: 100%;
+    grid-template-columns: fit-content;
+    box-shadow: none;
+  }
+}
+
+
+.result {
+  padding: 2rem 2.5rem 2.5rem 2.5rem ;
+  background: linear-gradient($light-slate-blue, $light-royal-blue);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.7rem;
+
+  font-weight: $font-size-700;
+
+  .result-number-container {
+    width: 70%;
+    aspect-ratio: 1; 
+    border-radius: 50%;
+    background: linear-gradient($violet-blue, $persian-blue);
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc($font-size / 1.2);
+
+    & :nth-child(1) {
+      color: $white;
+      font-size: calc($font-size * 3);
+      font-weight: $font-size-800;
+    }
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+
+
+    & :nth-child(1) {
+      color: $white;
+      font-size: calc($font-size * 1.2);
+      font-weight: $font-size-700;
+    }
+    
+    & :nth-child(2) {
+      text-align: center;
+      font-size: calc($font-size / 1.2)
+    }
+  }
+  
+}
+
+@media screen and (max-width: 375px) {
+  .result {
+    border-radius: 0 0 1rem 1rem;
+    gap: 1.5rem;
+
+    .result-number-container {
+      width: 55%;
+      aspect-ratio: 1; 
+      border-radius: 50%;
+    }
+  }
+
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.7rem;
+
+  .summary-title {
+    color: $dark-gray-blue;
+    font-weight: $font-size-700;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+  }
+
+  ul li {
+
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 .7rem;
+    border-radius: .3rem;
+    height: 2.7rem;
+    position: relative;
+
+    & .summary-option-text {
+      flex-grow: 1;
+      font-weight: $font-size-700;
+      font-size: calc($font-size / 1.2);
+    }
+  }
+
+  [area-color=Reaction] {
+    color: $light-red;
+    background: $light-red-bg;
+
+    & :first-child {
+      stroke: $light-red;
+    }
+  }
+
+  [area-color=Memory] {
+    color: $orange-yellow;
+    background: $orange-yellow-bg;
+
+    & :first-child {
+      stroke: $orange-yellow;
+    }
+  }
+
+  [area-color=Verbal] {
+    color: $green-teal;
+    background: $green-teal-bg;
+
+    & :first-child {
+      stroke: $green-teal;
+    }
+  }
+
+  [area-color=Visual] {
+    color: $cobal-blue;
+    background: $cobal-blue-bg;
+
+    & :first-child {
+      stroke: $cobal-blue;
+    }
+  }
+
+  .summary-option-icon {
+    stroke: $light-red;
+  }
+
+  .summary-option-number {
+    display: flex;
+    color: $dark-gray-blue;
+    gap: .4rem;
+    font-size: calc($font-size / 1.2);
+
+    & :first-child {
+      font-weight: $font-size-700;
+    }
+  }
+
+  .summary-button {
+    background: $dark-gray-blue;
+    border-radius: 100vh;
+    height: 2.7rem;
+
+
+    display: grid;
+    place-content: center;
+    color: $white;
+    cursor: pointer;
+  }
+  
+  @media screen and (min-width: 375px) {
+    
+    .summary-button:hover {
+      background: linear-gradient($light-slate-blue, $light-royal-blue);
+    }
+  }
+}
+
+.attribution {
+  color: $dark-gray-blue;
+  width: 40rem;
+  max-width: 100vw;
+  text-align: center;
+
+  & a {
+    font-weight: $font-size-700;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: auto 0 0 0;
+      margin: auto;
+
+      height: 2px;
+      width: 0%;
+      border-radius: 100vh;
+      background: $dark-gray-blue;
+
+      transition: width 250ms ease-in-out;
+
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+}
