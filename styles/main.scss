@@ -194,7 +194,7 @@ body {
     gap: .4rem;
     font-size: calc($font-size / 1.2);
 
-    & :first-child {
+    .summary-bold-number {
       font-weight: $font-size-700;
     }
   }
@@ -203,7 +203,8 @@ body {
     background: $dark-gray-blue;
     border-radius: 100vh;
     height: 2.7rem;
-
+    border: none;
+    outline: none;
 
     display: grid;
     place-content: center;
@@ -213,8 +214,13 @@ body {
   
   @media screen and (min-width: 375px) {
     
-    .summary-button:hover {
+    .summary-button:hover,
+    .summary-button:focus {
       background: linear-gradient($light-slate-blue, $light-royal-blue);
+    }
+
+    .summary-button:focus {
+      border: 2px solid $dark-gray-blue;
     }
   }
 }

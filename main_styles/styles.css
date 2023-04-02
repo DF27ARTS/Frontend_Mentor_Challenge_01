@@ -160,21 +160,27 @@ body {
   gap: 0.4rem;
   font-size: 15px;
 }
-.summary .summary-option-number :first-child {
+.summary .summary-option-number .summary-bold-number {
   font-weight: 700;
 }
 .summary .summary-button {
   background: hsl(224deg, 30%, 27%);
   border-radius: 100vh;
   height: 2.7rem;
+  border: none;
+  outline: none;
   display: grid;
   place-content: center;
   color: hsl(0deg, 0%, 100%);
   cursor: pointer;
 }
 @media screen and (min-width: 375px) {
-  .summary .summary-button:hover {
+  .summary .summary-button:hover,
+.summary .summary-button:focus {
     background: linear-gradient(hsl(252deg, 100%, 67%), hsl(241deg, 81%, 54%));
+  }
+  .summary .summary-button:focus {
+    border: 2px solid hsl(224deg, 30%, 27%);
   }
 }
 
